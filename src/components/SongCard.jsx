@@ -3,10 +3,15 @@ import { useDispatch } from "react-redux";
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
-const SongCard = ({ song, i }) => {
-  const activeSong = "Test";
-  const handlePauseClick = () => {};
-  const handlePlayClick = () => {};
+const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
+  const dispatch = useDispatch();
+  const handlePauseClick = () => {
+    dispatch(playPause(false));
+  };
+  const handlePlayClick = () => {
+    dispatch(setActiveSong({ song, data, i }));
+    dispatch(playPause(true));
+  };
 
   return (
     <div className="flex w-[250px] animate-slideup cursor-pointer flex-col rounded-lg bg-white/5 bg-opacity-80 p-4 backdrop-blur-sm">
@@ -22,9 +27,15 @@ const SongCard = ({ song, i }) => {
             song={song}
             handlePause={handlePauseClick}
             handlePlay={handlePlayClick}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
           />
         </div>
-        <img src={song.images?.coverart} alt="song_img" />
+        <img
+          src={song.images?.coverart}
+          alt="song_img"
+          className="rounded-lg"
+        />
       </div>
       <div className="mt-4 flex flex-col">
         <p className="truncate text-lg font-semibold text-white">
