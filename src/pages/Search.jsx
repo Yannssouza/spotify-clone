@@ -26,7 +26,7 @@ const Search = () => {
             song={song}
             isPlaying={isPlaying}
             activeSong={activeSong}
-            data={data}
+            data={data?.tracks}
             i={i}
           />
         ))}
