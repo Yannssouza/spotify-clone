@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
-  const artist = artistData?.artists[artistId]?.attributes;
+  const artist = artistData?.data[0].attributes;
   return (
     <div className="relative flex w-full flex-col">
       <div className="h-28 w-full bg-gradient-to-l from-transparent to-black sm:h-48" />
@@ -17,7 +17,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
         />
         <div className="ml-5">
           <p className="text-xl font-bold text-white sm:text-3xl">
-            {artistId ? artist?.name : songData?.title}
+            {artistId ? artist?.artistName : songData?.title}
           </p>
           {!artistId && (
             <Link to={`/artists/${songData?.artists[0].adamid}`}>

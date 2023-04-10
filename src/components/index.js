@@ -4,6 +4,7 @@ import SongCard from "./SongCard";
 import TopPlay from "./TopPlay";
 import ArtistCard from "./ArtistCard";
 import DetailsHeader from "./DetailsHeader";
+import ArtistTopSongs from "./ArtistTopSongs";
 import SongBar from "./SongBar";
 import RelatedSongs from "./RelatedSongs";
 import MusicPlayer from "./MusicPlayer";
@@ -17,6 +18,7 @@ export {
   Searchbar,
   ArtistCard,
   DetailsHeader,
+  ArtistTopSongs,
   SongBar,
   RelatedSongs,
   MusicPlayer,
