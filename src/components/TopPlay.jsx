@@ -22,14 +22,14 @@ const TopChartCard = ({
     <div className="flex flex-1 flex-row items-center justify-between">
       <img
         className="h-20 w-20 rounded-lg"
-        src={song?.images?.coverart}
+        src={song?.images?.coverart ? song?.images?.coverart : song?.hub?.image}
         alt={song?.title}
       />
       <div className="mx-3 flex flex-1 flex-col justify-center">
         <Link to={`/songs/${song?.key}`}>
           <p className="text-xl font-bold text-white">{song?.title}</p>
         </Link>
-        <Link to={`/artists/${song?.artists[0].adamid}`}>
+        <Link to={`/artists/${() => song?.artists[0].adamid}`}>
           <p className="mt-1 text-base text-gray-300">{song?.subtitle}</p>
         </Link>
       </div>
@@ -55,6 +55,8 @@ const TopPlay = () => {
   });
 
   const topPlays = data?.tracks?.slice(0, 5);
+
+  console.log(topPlays);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -112,9 +114,13 @@ const TopPlay = () => {
               style={{ width: "25%", height: "auto" }}
               className="animate-slideright rounded-full shadow-lg"
             >
-              <Link to={`/artists/${song?.artists[0].adamid}`}>
+              <Link to={`/artists/${() => song?.artists[0]?.adamid}`}>
                 <img
-                  src={song?.images.background}
+                  src={
+                    song?.images?.background
+                      ? song?.images?.background
+                      : song?.hub?.image
+                  }
                   alt="name"
                   className="w-full rounded-full object-cover"
                 />

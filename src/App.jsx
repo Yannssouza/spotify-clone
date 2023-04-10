@@ -34,7 +34,7 @@ const App = () => {
             </Routes>
           </div>
           <div className="relative top-0 h-fit xl:sticky">
-            {/* <TopPlay /> */}
+            <TopPlay />
           </div>
         </div>
       </div>
