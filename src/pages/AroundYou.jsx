@@ -27,7 +27,7 @@ const AroundYou = () => {
   return (
     <div className="flex flex-col">
       <h2 className="mt-4 mb-10 text-left text-3xl font-bold text-white">
-        Around You
+        Around You <span className="font-black">{country}</span>
       </h2>
       <div className="flex flex-wrap justify-center gap-8 sm:justify-start">
         {data?.tracks?.map((song, i) => (
